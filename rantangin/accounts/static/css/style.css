@@ -1,0 +1,356 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fff5f5;
+  overflow-x: hidden;
+  font-family: "Nunito";
+}
+
+.navbar{
+  background-color: #F5E8C7;
+  font-family: 'Nunito';
+  width: 100%;
+}
+
+.navbar-brand {
+  margin-left: 220px;
+}
+
+.item {
+  margin-right: 220px;
+  font-family: "Nunito";
+  font-size: 16px;
+}
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 400px;
+}
+
+.fire {
+  margin-left: 10%;
+  float: left;
+}
+
+p.promo {
+  padding-top: 2px;
+  font-family: "Nunito";
+  font-size: 18px;
+  float: left;
+}
+
+a.promo {
+  padding-left: 0px;
+  font-family: "Nunito";
+  font-size: 14px;
+  margin-left: 80%;
+}
+
+#gambar {
+  width: 100%;
+  height: 105%;
+  border-radius: 20px;
+  font-family: "Nunito";
+  background-color: #ffffff;
+  box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07),
+    0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275),
+    0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725);
+}
+
+.icon {
+  width: 70%;
+  height: 150%;
+}
+
+.kolom {
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+/*omellet*/
+.kolom-omellet {
+  margin-top: 32px;
+  margin-left: 25px;
+}
+
+.kolom-tomyam {
+  margin-top: 31px;
+  margin-left: 25px;
+}
+
+p.deskripsi {
+  font-size: 12px;
+}
+
+.harga {
+  margin-top: 5px;
+}
+
+.beli {
+  text-decoration: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #f5e8c7;
+  border-radius: 8px;
+  float: right;
+  margin-right: 25px;
+  color: #222222;
+  font-family: "Nunito";
+}
+
+.beli:hover {
+  background-color: #cda788;
+  color: #ffffff;
+}
+
+footer {
+  margin-top: 70px;
+  background-color: #ffffff;
+}
+
+.logo {
+  width: 30%;
+  height: 70%;
+  filter: drop-shadow(0px 100px 80px rgba(0, 0, 0, 0.07))
+    drop-shadow(0px 36.5016px 29.2013px rgba(0, 0, 0, 0.0482987))
+    drop-shadow(0px 17.7209px 14.1767px rgba(0, 0, 0, 0.0389404))
+    drop-shadow(0px 8.6871px 6.94968px rgba(0, 0, 0, 0.0310596))
+    drop-shadow(0px 3.43489px 2.74791px rgba(0, 0, 0, 0.0217013));
+}
+
+@media screen and (max-width: 572px) {
+  .navbar-brand {
+    margin-left: 0px;
+  }
+
+  .item {
+    margin-left: 0px;
+  }
+}
+
+.brand-wrapper {
+  padding-top: 7px;
+  padding-bottom: 8px;
+}
+
+.login-section-wrapper {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  padding: 67px 100px;
+  background-color: #fff;
+}
+
+@media (max-width: 991px) {
+  .login-section-wrapper {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 575px) {
+  .login-section-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 100vh;
+  }
+}
+
+.login-wrapper {
+  border: 2px solid #7385c7;
+  border-radius: 15px;
+  width: 450px;
+  max-width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+@media (max-width: 575px) {
+  .login-wrapper {
+    width: 100%;
+  }
+}
+
+label.mb-2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #b0adad;
+  margin-left: 40px;
+}
+
+.form-control {
+  width: 70%;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  padding: 9px 5px;
+  min-height: 40px;
+  margin-left: 40px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.form-1 {
+  margin-left: 40px;
+}
+
+#btn {
+  margin-left: 40px;
+}
+
+@media (max-width: 991px) {
+  .form-2 {
+    margin-left: 40px;
+  }
+  .d-flex {
+    display: inline-block;
+  }
+  .btn-2 {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-2 {
+    margin-left: 40px;
+  }
+
+  .d-flex {
+    display: inline-block;
+  }
+
+  .btn-2 {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .form-2 {
+    margin-left: 41px;
+  }
+
+  .d-flex {
+    display: inline-block;
+  }
+
+  .btn-2 {
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .form-control {
+    width: 70%;
+  }
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #b0adad;
+}
+
+.form-control::-moz-placeholder {
+  color: #b0adad;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #b0adad;
+}
+
+.form-control::-ms-input-placeholder {
+  color: #b0adad;
+}
+
+.form-control::placeholder {
+  color: #b0adad;
+}
+
+a.forgot-password-link {
+  color: #080808;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: right;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 41px;
+}
+
+button.btn {
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+a.btn {
+  font-size: 14px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.login-title {
+  font-size: 30px;
+  color: #222222;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-bottom: 25px;
+}
+
+.login-img {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: left;
+  object-position: left;
+}
+
+.signup-img {
+  width: 100%;
+  height: 130vh;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: left;
+  object-position: left;
+}
+
+/* Keranjang */
+table.table {
+  margin-top: 10%;
+  background-color: #ffffff;
+  font-family: "Nunito";
+}
+
+.table thead.thead-primary {
+  background: #1089ff;
+}
+
+.table thead th {
+  border-top: 2px solid #1089ff;
+  border-bottom: 2px solid #1089ff;
+  border-color: inherit;
+  padding: 17px 30px;
+  font-size: 16px;
+  color: #000;
+}
+
+.table tbody th {
+  border: none;
+  padding: 17px 30px;
+  border-bottom: 3px solid #f8f9fd;
+  font-size: 14px;
+}
+
+.table tbody td {
+  padding: 17px 30px;
+  border-bottom: 3px solid #d3e4cd;
+  font-size: 14px;
+}

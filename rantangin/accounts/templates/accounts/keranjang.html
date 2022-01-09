@@ -1,0 +1,198 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+        <title>Rantangin</title>
+    </head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Navigasi Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">       
+            <a class="navbar-brand fw-bold" href="#">Rantangin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div  class="item collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link"href="#">Promo</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Makanan</a></li>
+                            <li><a class="dropdown-item" href="#">Minuman</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Cemilan</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'keranjang' %}">Keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link fw-bold" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                    <a class="nav-link fw-bold" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{% url 'signup' %}">Singup</a>
+                    </li>
+                    {% endif %}
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+
+		<section class="keranjang">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 table-responsive table-responsive-sm table-responsive-md table-responsive-lg">
+						<table class="table table-bordered caption-top">
+							<caption class="fw-bold">{{ user.username }}</caption>
+							<table class="table">
+								<thead>
+								  <tr>
+									<th scope="col">#</th>
+									<th scope="col">Item Name</th>
+									<th scope="col">Price</th>
+									<th scope="col">Quantity</th>
+									<th scope="col">Total Item Price</th>
+								  </tr>
+								</thead>
+								<tbody>
+									{% for order_item in object.items.all %}
+									<tr>
+									  <th scope="row">{{ forloop.counter }}</th>
+									  <td>{{ order_item.item.item_name }}</td>
+									  <td>
+										{% if order_item.item.discount_price %}
+										<del>Rp. {{ order_item.item.price|floatformat:0 }}</del>
+										Ro. {{ order_item.item.discount_price|floatformat:0 }} 
+										{% else %} 
+										Rp. {{ order_item.item.price|floatformat:0 }} 
+										{% endif %}
+									  </td>
+									  <td>
+										<a href="{% url 'reduce-quantity-item' order_item.item.pk %}"
+										  >-</i
+										></a>
+										{{ order_item.quantity }}
+										<a href="{% url 'add-to-cart' order_item.item.pk %}"
+										  >+</i
+										></a>
+									  </td>
+									  <td>
+										{% if order_item.item.discount_price %} ${{
+										order_item.get_discount_item_price|floatformat:0 }}
+										<span class="badge badge-success"
+										  >Saved Rp. {{ order_item.get_amount_saved|floatformat:0 }}</span
+										>
+										{% else %} Rp. {{ order_item.get_total_item_price|floatformat:0 }} {% endif %}
+										<a href="{% url 'remove-from-cart' order_item.item.pk %}">
+										  X
+										</a>
+									  </td>
+									</tr>
+						  
+									{% empty %}
+									<tr>
+									  <td colspan="5">Your Cart is Empty</td>
+									</tr>
+						  
+									<tr>
+									  <td colspan="5">
+										<a href="/" class="btn btn-primary float-right"
+										  >Continue Shopping</a
+										>
+									  </td>
+									</tr>
+						  
+									{% endfor %} {% if object.get_total_price|floatformat:0 %}
+									<tr>
+									  <td colspan="4"><b>Total Order Price</b></td>
+									  <td>Rp. {{ object.get_total_price|floatformat:0 }}</td>
+									</tr>
+									<tr>
+									  <td colspan="5">
+										<a href="{% url 'checkout' %}" class="btn btn-primary float-right ml-2 text-primary">Checkout</a>
+										<a href="/" class="btn btn-primary float-right text-primary"
+										  >Continue Shopping</a
+										>
+									  </td>
+									</tr>
+						  
+									{% endif %}
+								  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+
+  <footer class="text-center text-lg-start">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Rantangin</h5>
+          <img
+            src="{% static 'img/Rantangin_logo.png' %}"
+            alt="Rantangin Logo"
+            class="logo"
+          />
+        </div>
+
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Location</h5>
+          <p>
+            <i
+              >Jl. R.Mangun Muka Raya No.11, RT.11/RW.14, Rawamangun, Kec.
+              Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta
+              13220</i
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center p-3" style="background-color: #f5e8c7">
+      © 2021 Copyright:
+      <a class="text-dark" href="#" style="text-decoration: none"
+        >Rantangin</a
+      >
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
+
+
+</html>
