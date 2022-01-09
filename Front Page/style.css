@@ -1,0 +1,143 @@
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	background-color:  #FFF5F5;
+	overflow-x: hidden;
+	font-family: 'Nunito';
+}
+
+.navbar{
+	background-color: #F5E8C7;
+	font-family: 'Nunito';
+	position: fixed;
+	z-index: 99;
+	width: 100%;
+}
+
+.navbar-brand{
+	margin-left: 220px;
+}
+
+.item{
+	margin-left: 420px;
+	font-family: 'Nunito';
+	font-size: 16px;
+}
+
+.jumbotron{
+	background-image: url(images/bg.png);
+	height: 400px;
+}
+
+.mask{
+	background-color: rgba(0, 0, 0, 0.6);
+	height: 400px;
+}
+
+.fire{
+	margin-left: 10%;
+	float: left;
+}
+
+
+p.promo{
+	padding-top: 2px;
+	font-family: 'Nunito';
+	font-size: 18px;
+	float: left;
+}
+
+a.promo{
+	padding-left: 0px;
+	font-family: 'Nunito';
+	font-size: 14px;
+	margin-left: 80%;
+}
+
+#gambar{
+	width: 100%;
+	height: 105%;
+	border-radius: 20px;
+	font-family: 'Nunito';
+	background-color: #FFFFFF;
+	box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 
+				0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 
+				0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725);
+}
+
+.icon{
+	width: 70%;
+	height: 150%;
+}
+
+.kolom{
+	margin-top: 20px;
+	margin-left: 25px;
+}
+
+/*omellet*/
+.kolom-omellet{
+	margin-top: 32px;
+	margin-left: 25px;
+}
+
+.kolom-tomyam{
+	margin-top: 31px;
+	margin-left: 25px;
+}
+
+
+p.deskripsi{
+	font-size: 12px;
+}
+
+.harga{
+	margin-top: 5px;
+}
+
+.beli{
+	text-decoration: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #F5E8C7;
+	border-radius: 8px;
+	float: right;
+	margin-right: 25px;
+	color: #222222;
+	font-family: 'Nunito';
+}
+
+.beli:hover{
+	background-color: #CDA788;
+	color: #FFFFFF;
+}
+
+footer{
+	margin-top: 70px; 
+	background-color: #FFFFFF;
+}
+
+.logo{
+	width: 30%; 
+	height: 70%;
+	filter: drop-shadow(0px 100px 80px rgba(0, 0, 0, 0.07)) 
+			drop-shadow(0px 36.5016px 29.2013px rgba(0, 0, 0, 0.0482987)) 
+			drop-shadow(0px 17.7209px 14.1767px rgba(0, 0, 0, 0.0389404)) 
+			drop-shadow(0px 8.6871px 6.94968px rgba(0, 0, 0, 0.0310596)) 
+			drop-shadow(0px 3.43489px 2.74791px rgba(0, 0, 0, 0.0217013));
+}
+
+
+@media screen and (max-width: 572px){
+	.navbar-brand{
+		margin-left: 0px;
+	}
+
+	.item{
+		margin-left: 0px;
+	}
+}
